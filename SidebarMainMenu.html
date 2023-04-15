@@ -6,14 +6,9 @@
   <body>
     <h4>Select Your Name</h4>
     <div id="employee-buttons-container"><!-- container for employee buttons --> </div>
-
+    
+    <!-- script to create employee buttons dynamically -->
     <script>
-      // Function to handle button clicks
-      function buttonClicked(e) {
-        var buttonId = e.target.id;
-        google.script.run.processButtonClick(buttonId);
-      }
-
       // Function to create employee buttons
       function createEmployeeButtons(employeeList) {
         var container = document.getElementById("employee-buttons-container");
@@ -23,15 +18,8 @@
           button.textContent = employeeObj.name;
           button.id = employeeObj.admin ? "admin" : "employee";
           button.className = employeeObj.temporary ? "temporary" : "permanent";
-          button.addEventListener("click", buttonClicked);
           container.appendChild(button);
         });
-
-        var button = document.createElement("button");
-        button.textContent = "Other";
-        button.id = "other";
-        button.addEventListener("click", buttonClicked);
-        container.appendChild(button);
       }
 
       // Load the employee list and create buttons
