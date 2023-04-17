@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      body {
+        background-color: #bde0fe;
+      }
+
+
+      button.done{
+        background-color: #4681f4;
+        color: white;
+        font-weight: bold;
+        border: 1px;
+        padding: 5px;
+        border-radius: 5px;
+        margin: 10px;
+      }
+      button.done:hover{
+        background-color: #0F52BA;
+      }
+      button.done:active{
+        background-color: #4169E1;
+      }
+
+    </style>
+  </head>
+  <body>
+    <div>
+      <h4>Here would be employee selection, pick your name from the drop down and then it would load the dashboard on this page</h4>
+      <select>
+        <option>Monica</option>
+        <option>Daniel</option>
+        <option>Rom</option>
+        <option>Guru</option>
+        <option>Ryan</option>
+        <option>Other</option>
+      </select>
+    </div>
+
+    <div id="dashboard">
+      <div id="manager-dash">
+      <h4>Once selected, options will show up below here</h4>
+
+      <h4>Manager Dash(Only manager/admin will see this)</h4>
+      <button>Usage Reports</button>
+      <button>Auction Reports</button>
+      <button>Follow Up Reports</button>
+      <button>Employee Reports</button>
+      </div>
+
+      <div>
+        <h4>Daily Dash(everyone would see this)</h4>
+        <button id="employee-temp" class="done">Employee Temperature Report</button>
+        <button id="building-temp" class="done">Building Temperature Report</button>
+        <button id="register" class="done">Cash Register</button>
+        <button id="eod" class="done">End of Day Report</button>
+      </div>
+
+      <div>
+        <h4>AM Tasks</h4>
+        <button>Turn On Warehouse Music</button>
+        <button>U-Haul Updates</button>
+        <button>Turn On Warehouse Music</button>
+      </div>
+    </div>
+
+    <script>
+      //set up employee temp button
+      document.getElementById("employee-temp").addEventListener("click", function() {
+      google.script.run.loadHTMLPage("EmployeeTemperatureReport.html", "Employee Temperature Report");
+      });
+      //set up building temp report button
+      document.getElementById("building-temp").addEventListener("click", function() {
+      google.script.run.loadHTMLPage("BuildingTemperatureReport.html", "Building Report");
+      });
+      //set up cash drawer report button
+      document.getElementById("register").addEventListener("click", function() {
+      google.script.run.loadHTMLPage("CashDrawer.html", "Cash Register Report");
+      });
+      //set up cash drawer report button
+      document.getElementById("eod").addEventListener("click", function() {
+      google.script.run.loadHTMLPage("EndOfDayReport.html", "EOD Report");
+      });
+    </script>
+
+  </body>
+</html>
